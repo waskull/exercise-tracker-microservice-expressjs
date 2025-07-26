@@ -7,31 +7,90 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
 </head>
 
-<body>
+<body class="has-background-primary">
   <div class="container">
-    <h1>Exercise tracker</h1>
-    <form action="/api/users" method="post">
-      <h2>Create a New User</h2>
-      <p><code>POST /api/users</code></p>
-      <input id="uname" type="text" name="username" placeholder="username" />
-      <input type="submit" value="Submit" />
-    </form>
-    <form action="/:_id/exercises" id="exercise-form" method="post">
-      <h2>Add exercises</h2>
-      <p><code>POST /api/users/:_id/exercises</code></p>
-      <input id="uid" type="text" name=":_id" placeholder=":_id" />
-      <input id="desc" type="text" name="description" placeholder="description*" />
-      <input id="dur" type="text" name="duration" placeholder="duration* (mins.)" />
-      <input id="date" type="text" name="date" placeholder="date (yyyy-mm-dd)" />
-      <input type="submit" value="Submit" />
-    </form>
-    <p>
-      <strong>GET user's exercise log: </strong>
-      <code>GET /api/users/:_id/logs?[from][&amp;to][&amp;limit]</code>
-    </p>
-    <p><strong>[ ]</strong> = optional</p>
-    <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <p class="title has-text-white has-text-centered">Seguidor de Ejercicios</p>
+        <p class="subtitle has-text-white has-text-centered has-text-weight-semibold">Prueba de freeCodeCamp para el
+          curso
+          de Backend.</p>
+      </div>
+    </section>
+    <section class="section  has-background-primary">
+      <div class="box has-background-dark">
+        <form action="api/users" method="POST">
+          <p class="has-text-weight-semibold has-text-white has-text-centered is-size-4 mb-2">Formulario de creación de
+            Usuario</p>
+          <fieldset>
+            <div class="field has-addons has-addons-centered">
+              <label for="username"
+                class="label has-text-white is-size-4 has-text-weight-semibold has-text-centered has-text-weight-semibold">Usuario:
+                &nbsp;</label>
+              <p class="control is-expanded">
+                <input id="username" name="username" class="has-text-white input" type="text"
+                  placeholder="Nombre de usuario">
+              </p>
+              <p class="control">
+                <input value="Crear" type="submit" class="button is-primary">
+                </input>
+              </p>
+            </div>
+          </fieldset>
+        </form>
+        <hr class="has-background-white">
+        <form action="/:_id/exercises" id="exercise-form" method="post">
+          <h2 class="is-size-4 has-text-centered has-text-white has-text-weight-semibold">Formulario de Ejercicios</h2>
+          <p><code>POST /api/users/:_id/exercises</code></p>
+          <fieldset>
+            <div class="field mt-2 has-addons has-addons-centered">
+              <label for="_id"
+                class="label has-text-white is-size-4 has-text-weight-semibold has-text-centered has-text-weight-semibold">Usuario:
+                &nbsp;</label>
+              <p class="control is-expanded">
+                <input id="uid" type="text" name=":_id" placeholder="Id de Usuario" class="has-text-white input">
+              </p>
+              <p class="control is-expanded">
+                <input class="has-text-white input" id="desc" type="text" name="description"
+                  placeholder="Descripción*" />
+              </p>
+              <p class="control is-expanded">
+                <input class="has-text-white input" id="dur" type="text" name="duration"
+                  placeholder="Duración en minutos*" />
+              </p>
+
+              <p class="control is-expanded">
+                <input class="has-text-white input" id="date" type="text" name="date"
+                  placeholder="Fecha (AAAA-mm-dd)" />
+              </p>
+
+              <p class="control">
+                <input value="Crear" type="submit" class="button is-primary">
+                </input>
+              </p>
+            </div>
+          </fieldset>
+        </form>
+        <hr class="has-background-white">
+        <p>
+          <strong>Petición GET de Registro de ejercicio de usuario: </strong>
+          <code>GET /api/users/:_id/logs?[from][&amp;to][&amp;limit]</code>
+        </p>
+        <p><strong>[ ]</strong> = opcional</p>
+        <p><strong>from, to</strong> = fechas (yyyy-mm-dd); <strong>limit</strong> = numero</p>
+      </div>
+      <div class="has-background-primary">
+        <p class="has-text-right">
+          <a class="has-text-white has-font-weight-semibold has-font-primary"
+            href="https://www.freecodecamp.org/">freeCodeCamp.org -</a>
+          <a style="text-decoration: underline;" class="has-text-white has-font-weight-semibold has-font-primary"
+            href="https://github.com/waskull/exercise-tracker-microservice-expressjs">Codigo Fuente.</a>
+        </p>
+      </div>
+    </section>
+
   </div>
+
   <script>
     const exerciseForm = document.getElementById("exercise-form");
 
